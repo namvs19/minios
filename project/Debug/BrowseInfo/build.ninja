@@ -1,0 +1,71 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\os.xcl : COMPILER_XCL 
+  xclcommand = -source_file E$:\MCP\RTOS\source\modules\os.c -xcl_file E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\os.xcl -macro_file E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\os.tmp -icc_path "D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = E$:\MCP\RTOS\source\modules\os.c -D CPU_MKL46Z256VLL4 -o E$:\MCP\RTOS\project\Debug\Obj\source\modules --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I E$:\MCP\RTOS\project\..\CMSIS\Include\ -I E$:\MCP\RTOS\project\..\libs\ -I E$:\MCP\RTOS\project\..\MKL46Z4\ -I E$:\MCP\RTOS\project\..\source\drivers\ -I E$:\MCP\RTOS\project\..\source\modules\ -I E$:\MCP\RTOS\project\..\source\ -Ol --predef_macros E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\os.tmp
+  rspfile_name = E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\os.xcl.rsp
+
+build E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\Timer.xcl : COMPILER_XCL 
+  xclcommand = -source_file E$:\MCP\RTOS\source\modules\Timer.c -xcl_file E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\Timer.xcl -macro_file E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\Timer.tmp -icc_path "D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = E$:\MCP\RTOS\source\modules\Timer.c -D CPU_MKL46Z256VLL4 -o E$:\MCP\RTOS\project\Debug\Obj\source\modules --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I E$:\MCP\RTOS\project\..\CMSIS\Include\ -I E$:\MCP\RTOS\project\..\libs\ -I E$:\MCP\RTOS\project\..\MKL46Z4\ -I E$:\MCP\RTOS\project\..\source\drivers\ -I E$:\MCP\RTOS\project\..\source\modules\ -I E$:\MCP\RTOS\project\..\source\ -Ol --predef_macros E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\Timer.tmp
+  rspfile_name = E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\Timer.xcl.rsp
+
+build E$:\MCP\RTOS\project\Debug\BrowseInfo\source\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file E$:\MCP\RTOS\source\main.c -xcl_file E$:\MCP\RTOS\project\Debug\BrowseInfo\source\main.xcl -macro_file E$:\MCP\RTOS\project\Debug\BrowseInfo\source\main.tmp -icc_path "D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = E$:\MCP\RTOS\source\main.c -D CPU_MKL46Z256VLL4 -o E$:\MCP\RTOS\project\Debug\Obj\source --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I E$:\MCP\RTOS\project\..\CMSIS\Include\ -I E$:\MCP\RTOS\project\..\libs\ -I E$:\MCP\RTOS\project\..\MKL46Z4\ -I E$:\MCP\RTOS\project\..\source\drivers\ -I E$:\MCP\RTOS\project\..\source\modules\ -I E$:\MCP\RTOS\project\..\source\ -Ol --predef_macros E$:\MCP\RTOS\project\Debug\BrowseInfo\source\main.tmp
+  rspfile_name = E$:\MCP\RTOS\project\Debug\BrowseInfo\source\main.xcl.rsp
+
+build E$:\MCP\RTOS\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl : COMPILER_XCL 
+  xclcommand = -source_file E$:\MCP\RTOS\MKL46Z4\system_MKL46Z4.c -xcl_file E$:\MCP\RTOS\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl -macro_file E$:\MCP\RTOS\project\Debug\BrowseInfo\startup\system_MKL46Z4.tmp -icc_path "D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = E$:\MCP\RTOS\MKL46Z4\system_MKL46Z4.c -D CPU_MKL46Z256VLL4 -o E$:\MCP\RTOS\project\Debug\Obj\startup --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "D$:\Install\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -I E$:\MCP\RTOS\project\..\CMSIS\Include\ -I E$:\MCP\RTOS\project\..\libs\ -I E$:\MCP\RTOS\project\..\MKL46Z4\ -I E$:\MCP\RTOS\project\..\source\drivers\ -I E$:\MCP\RTOS\project\..\source\modules\ -I E$:\MCP\RTOS\project\..\source\ -Ol --predef_macros E$:\MCP\RTOS\project\Debug\BrowseInfo\startup\system_MKL46Z4.tmp
+  rspfile_name = E$:\MCP\RTOS\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl.rsp
+
+build E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\os.pbi : INDEXER E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\os.xcl |  $
+E$:\MCP\RTOS\source\modules\os.c
+  flags = -out=E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\os.pbi -f E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\os.xcl
+
+build E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\Timer.pbi : INDEXER E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\Timer.xcl |  $
+E$:\MCP\RTOS\source\modules\Timer.c
+  flags = -out=E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\Timer.pbi -f E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\Timer.xcl
+
+build E$:\MCP\RTOS\project\Debug\BrowseInfo\source\main.pbi : INDEXER E$:\MCP\RTOS\project\Debug\BrowseInfo\source\main.xcl |  $
+E$:\MCP\RTOS\source\main.c
+  flags = -out=E$:\MCP\RTOS\project\Debug\BrowseInfo\source\main.pbi -f E$:\MCP\RTOS\project\Debug\BrowseInfo\source\main.xcl
+
+build E$:\MCP\RTOS\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi : INDEXER E$:\MCP\RTOS\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl |  $
+E$:\MCP\RTOS\MKL46Z4\system_MKL46Z4.c
+  flags = -out=E$:\MCP\RTOS\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi -f E$:\MCP\RTOS\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl
+
+build E$:\MCP\RTOS\project\Debug\BrowseInfo\rtos.pbw : MAKEBROWSE E$:\MCP\RTOS\project\Debug\BrowseInfo\rtos.pbd
+  flags = E$:\MCP\RTOS\project\Debug\BrowseInfo\rtos.pbd -output E$:\MCP\RTOS\project\Debug\BrowseInfo\rtos.pbw
+
+build E$:\MCP\RTOS\project\Debug\BrowseInfo\rtos.pbd : PDBLINK E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\os.pbi |  $
+E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\Timer.pbi $
+E$:\MCP\RTOS\project\Debug\BrowseInfo\source\main.pbi $
+E$:\MCP\RTOS\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi
+  flags = -M E$:\MCP\RTOS\project\Debug\BrowseInfo\rtos.pbd E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\os.pbi E$:\MCP\RTOS\project\Debug\BrowseInfo\source\modules\Timer.pbi E$:\MCP\RTOS\project\Debug\BrowseInfo\source\main.pbi E$:\MCP\RTOS\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi
+

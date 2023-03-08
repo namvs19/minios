@@ -1,0 +1,22 @@
+E:\MCP\RTOS\project\Debug\BrowseInfo\source\main.pbi: \
+  E:\MCP\RTOS\project\..\source\modules\os_config.h \
+  E:\MCP\RTOS\project\..\source\modules\os.h \
+  E:\MCP\RTOS\project\..\source\modules\Timer_config.h \
+  E:\MCP\RTOS\project\..\source\drivers\PIT.h \
+  E:\MCP\RTOS\project\..\source\modules\Timer.h \
+  E:\MCP\RTOS\project\..\source\drivers\PORT.h \
+  E:\MCP\RTOS\project\..\MKL46Z4\system_MKL46Z4.h \
+  E:\MCP\RTOS\project\..\CMSIS\Include\core_cmFunc.h \
+  D:\Install\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.0\arm\inc\c\DLib_Product.h \
+  D:\Install\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.0\arm\inc\c\DLib_Config_Normal.h \
+  D:\Install\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.0\arm\inc\c\DLib_Defaults.h \
+  D:\Install\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.0\arm\inc\c\yvals.h \
+  D:\Install\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.0\arm\inc\c\aarch32\iccarm_builtin.h \
+  D:\Install\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.0\arm\inc\c\aarch32\cmsis_iar.h \
+  E:\MCP\RTOS\project\..\CMSIS\Include\core_cmInstr.h \
+  E:\MCP\RTOS\project\..\libs\std_type.h \
+  E:\MCP\RTOS\project\..\CMSIS\Include\core_cm0plus.h \
+  E:\MCP\RTOS\project\..\MKL46Z4\hardware_MKL46Z4.h \
+  E:\MCP\RTOS\project\..\source\drivers\GPIO.h \
+  E:\MCP\RTOS\project\..\source\drivers\Board.h \
+  E:\MCP\RTOS\source\main.c
